@@ -1,0 +1,582 @@
+
+NAMED_VALUE_LISTS
+	oCodes [0x8, 0x9, 0xc, 0x4, 0x5, 0x20, 0x2, 0x3, 0x23, 0xf, 0xd, 0xa, 0xb, 0x2b, 0xe]
+	fCodes [0x0, 0x1, 0x4, 0x20, 0x24, 0x27, 0x25, 0x2a, 0x22]
+
+
+
+BEGIN add
+	INPUTS
+		OpCode	0x0
+		functionCode 0x20
+	OUTPUTS
+		RegDest	1
+		Branch	0
+		MemRead	0
+		MemToReg	0
+		bne	0
+		ALUop0	0
+		ALUop1	0
+		ALUop2	0
+		ALUop3	0
+		MemWrite	0
+		ALUsrc	0
+		RegWrite	1
+		Jump	0
+		jal	0
+		jr	0
+		Halt	0
+		nse	0
+
+BEGIN addu
+	INPUTS
+		OpCode	0x0
+		functionCode 0x21
+	OUTPUTS
+		RegDest	1
+		Branch	0
+		MemRead	0
+		MemToReg	0
+		bne	0
+		ALUop0	0
+		ALUop1	0
+		ALUop2	0
+		ALUop3	0
+		MemWrite	0
+		ALUsrc	0
+		RegWrite	1
+		Jump	0
+		jal	0
+		jr	0
+		Halt	0
+		nse	0
+
+BEGIN addi
+	INPUTS
+		OpCode	0x8
+		functionCode fCodes
+	OUTPUTS
+		RegDest	0
+		Branch	0
+		MemRead	0
+		MemToReg	0
+		bne	0
+		ALUop0	0
+		ALUop1	0
+		ALUop2	0
+		ALUop3	0
+		MemWrite	0
+		ALUsrc	1
+		RegWrite	1
+		Jump	0
+		jal	0
+		jr	0
+		Halt	0
+		nse	1
+
+BEGIN addiu
+	INPUTS
+		OpCode	0x9
+		functionCode fCodes
+	OUTPUTS
+		RegDest	0
+		Branch	0
+		MemRead	0
+		MemToReg	0
+		ALUop0	0
+		ALUop1	0
+		ALUop2	0
+		ALUop3	0
+		MemWrite	0
+		ALUsrc	1
+		RegWrite	1
+		Jump	0
+		jal	0
+		jr	0
+		Halt	0
+		nse	0
+
+BEGIN and
+	INPUTS
+		OpCode	0x0
+		functionCode 0x24
+	OUTPUTS
+		RegDest	1
+		Branch	0
+		MemRead	0
+		MemToReg	0
+		bne	0
+		ALUop0	0
+		ALUop1	1
+		ALUop2	0
+		ALUop3	0
+		MemWrite	0
+		ALUsrc	0
+		RegWrite	1
+		Jump	0
+		jal	0
+		jr	0
+		Halt	0
+		nse	0
+
+BEGIN andi
+	INPUTS
+		OpCode	0xc
+		functionCode fCodes
+	OUTPUTS
+		RegDest	0
+		Branch	0
+		MemRead	0
+		MemToReg	0
+		ALUop0	0
+		ALUop1	1
+		ALUop2	0
+		ALUop3	0
+		MemWrite	0
+		ALUsrc	1
+		RegWrite	1
+		Jump	0
+		jal	0
+		jr	0
+		Halt	0
+		nse	1
+
+BEGIN beq
+	INPUTS
+		OpCode	0x4
+		functionCode fCodes
+	OUTPUTS
+		Branch	1
+		MemRead	0
+		ALUop0	1
+		ALUop1	0
+		ALUop2	0
+		ALUop3	0
+		MemWrite	0
+		ALUsrc	0
+		RegWrite	0
+		Jump	0
+		jal	0
+		jr	0
+		Halt	0
+		nse	1
+
+BEGIN bne
+	INPUTS
+		OpCode	0x5
+		functionCode fCodes
+	OUTPUTS
+
+		Branch	1
+		MemRead	0
+		bne	1
+		ALUop0	1
+		ALUop1	0
+		ALUop2	0
+		ALUop3	0
+		MemWrite	0
+		ALUsrc	0
+		RegWrite	0
+		Jump	0
+		jal	0
+		jr	0
+		Halt	0
+		nse	1
+
+BEGIN halt
+	INPUTS
+		OpCode 0x20
+		functionCode fCodes
+	OUTPUTS
+		Halt 1
+		MemWrite 0
+		RegWrite 0   
+
+
+BEGIN j
+	INPUTS
+		OpCode	0x2
+		functionCode fCodes
+	OUTPUTS
+
+		Branch	0
+		MemRead	0
+		bne	0
+		ALUop0	0
+		ALUop1	0
+		ALUop2	0
+		ALUop3	0
+		MemWrite	0
+		ALUsrc	1
+		RegWrite	0
+		Jump	1
+		jal	0
+		jr	0
+		Halt	0
+		nse	1
+
+BEGIN jal
+	INPUTS
+		OpCode	0x3
+		functionCode fCodes
+	OUTPUTS
+		RegDest	0
+		Branch	0
+		MemRead	0
+		bne	0
+		ALUop0	0
+		ALUop1	0
+		ALUop2	0
+		ALUop3	0
+		MemWrite	0
+		ALUsrc	1
+		RegWrite	1
+		Jump	1
+		jal	1
+		jr	0
+		Halt	0
+		nse	1
+
+BEGIN jr
+	INPUTS
+		OpCode	0x0
+		functionCode 0x08
+	OUTPUTS
+		RegDest	1
+		Branch	0
+		MemRead	0
+		bne	0
+		ALUop0	0
+		ALUop1	0
+		ALUop2	0
+		ALUop3	0
+		MemWrite	0
+		ALUsrc	0
+		RegWrite	0
+		Jump	1
+		jal	0
+		jr	1
+		Halt	0
+		nse	0
+
+BEGIN lw
+	INPUTS
+		OpCode	0x23
+		functionCode fCodes
+	OUTPUTS
+		RegDest	0
+		Branch	0
+		MemRead	1
+		MemToReg	1
+		bne	0
+		ALUop0	0
+		ALUop1	0
+		ALUop2	0
+		ALUop3	0
+		MemWrite	0
+		ALUsrc	1
+		RegWrite	1
+		Jump	0
+		jal	0
+		jr	0
+		Halt	0
+		nse	1
+
+BEGIN lui
+	INPUTS
+		OpCode	0xf
+		functionCode fCodes
+	OUTPUTS
+		RegDest	0
+		Branch	0
+		MemRead	0
+		MemToReg	0
+		bne	0
+		ALUop0	0
+		ALUop1	1
+		ALUop2	1
+		ALUop3	0
+		MemWrite	0
+		ALUsrc	1
+		RegWrite	1
+		Jump	0
+		jal	0
+		jr	0
+		Halt	0
+		nse	1
+
+BEGIN nor
+	INPUTS
+		OpCode	0x0
+		functionCode 0x27
+	OUTPUTS
+		RegDest	1
+		Branch	0
+		MemRead	0
+		MemToReg	0
+		bne	0
+		ALUop0	0
+		ALUop1	0
+		ALUop2	1
+		ALUop3	0
+		MemWrite	0
+		ALUsrc	0
+		RegWrite	1
+		Jump	0
+		jal	0
+		jr	0
+		Halt	0
+		nse	0
+
+BEGIN or
+	INPUTS
+		OpCode	0x0
+		functionCode 0x25
+	OUTPUTS
+		RegDest	1
+		Branch	0
+		MemRead	0
+		MemToReg	0
+		bne	0
+		ALUop0	1
+		ALUop1	1
+		ALUop2	0
+		ALUop3	0
+		MemWrite	0
+		ALUsrc	0
+		RegWrite	1
+		Jump	0
+		jal	0
+		jr	0
+		Halt	0
+		nse	0
+
+BEGIN ori
+	INPUTS
+		OpCode	0xd
+		functionCode fCodes
+	OUTPUTS
+		RegDest	0
+		Branch	0
+		MemRead	0
+		MemToReg	0
+		bne	0
+		ALUop0	1
+		ALUop1	1
+		ALUop2	0
+		ALUop3	0
+		MemWrite	0
+		ALUsrc	1
+		RegWrite	1
+		Jump	0
+		jal	0
+		jr	0
+		Halt	0
+		nse	1
+
+BEGIN slt
+	INPUTS
+		OpCode	0x0
+		functionCode 0x2a
+	OUTPUTS
+		RegDest	1
+		Branch	0
+		MemRead	0
+		MemToReg	0
+		bne	0
+		ALUop0	1
+		ALUop1	1
+		ALUop2	1
+		ALUop3	1
+		MemWrite	0
+		ALUsrc	0
+		RegWrite	1
+		Jump	0
+		jal	0
+		jr	0
+		Halt	0
+		nse	0
+
+BEGIN sltu
+	INPUTS
+		OpCode	0x0
+		functionCode 0x2b
+	OUTPUTS
+		RegDest	1
+		Branch	0
+		MemRead	0
+		MemToReg	0
+		bne	0
+		ALUop0	1
+		ALUop1	1
+		ALUop2	1
+		ALUop3	0
+		MemWrite	0
+		ALUsrc	0
+		RegWrite	1
+		Jump	0
+		jal	0
+		jr	0
+		Halt	0
+		nse	0
+
+BEGIN slti
+	INPUTS
+		OpCode	0xa
+		functionCode fCodes
+	OUTPUTS
+		RegDest	0
+		Branch	0
+		MemRead	0
+		MemToReg	0
+		bne	0
+		ALUop0	1
+		ALUop1	1
+		ALUop2	1
+		ALUop3	1
+		MemWrite	0
+		ALUsrc	1
+		RegWrite	1
+		Jump	0
+		jal	0
+		jr	0
+		Halt	0
+		nse	1
+
+BEGIN sltiu
+	INPUTS
+		OpCode	0xb
+		functionCode fCodes
+	OUTPUTS
+		RegDest	0
+		Branch	0
+		MemRead	0
+		MemToReg	0
+		bne	0
+		ALUop0	1
+		ALUop1	1
+		ALUop2	1
+		ALUop3	0
+		MemWrite	0
+		ALUsrc	1
+		RegWrite	1
+		Jump	0
+		jal	0
+		jr	0
+		Halt	0
+		nse	1
+
+BEGIN sw
+	INPUTS
+		OpCode	0x2b
+		functionCode fCodes
+	OUTPUTS
+
+		Branch	0
+		MemRead	0
+
+		bne	0
+		ALUop0	0
+		ALUop1	0
+		ALUop2	0
+		ALUop3	0
+		MemWrite	1
+		ALUsrc	1
+		RegWrite	0
+		Jump	0
+		jal	0
+		jr	0
+		Halt	0
+		nse	1
+
+BEGIN sub
+	INPUTS
+		OpCode	0x0
+		functionCode 0x22
+	OUTPUTS
+		RegDest	1
+		Branch	0
+		MemRead	0
+		MemToReg	0
+		bne	0
+		ALUop0	1
+		ALUop1	0
+		ALUop2	0
+		ALUop3	0
+		MemWrite	0
+		ALUsrc	0
+		RegWrite	1
+		Jump	0
+		jal	0
+		jr	0
+		Halt	0
+		nse	0
+
+BEGIN subunsigned
+	INPUTS
+		OpCode	0x0
+		functionCode 0x23
+	OUTPUTS
+		RegDest	1
+		Branch	0
+		MemRead	0
+		MemToReg	0
+		bne	0
+		ALUop0	1
+		ALUop1	0
+		ALUop2	0
+		ALUop3	0
+		MemWrite	0
+		ALUsrc	0
+		RegWrite	1
+		Jump	0
+		jal	0
+		jr	0
+		Halt	0
+		nse	0
+
+BEGIN xor
+	INPUTS
+		OpCode	0x0
+		functionCode 0x26
+	OUTPUTS
+		RegDest	1
+		Branch	0
+		MemRead	0
+		MemToReg	0
+		bne	0
+		ALUop0	1
+		ALUop1	0
+		ALUop2	1
+		ALUop3	0
+		MemWrite	0
+		ALUsrc	0
+		RegWrite	1
+		Jump	0
+		jal	0
+		jr	0
+		Halt	0
+		nse	0
+
+BEGIN xori
+	INPUTS
+		OpCode	0xe
+		functionCode fCodes
+	OUTPUTS
+		RegDest	0
+		Branch	0
+		MemRead	0
+		MemToReg	0
+		bne	0
+		ALUop0	1
+		ALUop1	0
+		ALUop2	1
+		ALUop3	0
+		MemWrite	0
+		ALUsrc	1
+		RegWrite	1
+		Jump	0
+		jal	0
+		jr	0
+		Halt	0
+		nse	1

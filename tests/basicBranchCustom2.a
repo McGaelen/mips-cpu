@@ -1,0 +1,24 @@
+	.data
+val1:	1983
+val2:	2007
+val3:	5
+val4:	10
+val5:	0
+val6: 	0
+
+	.text
+	
+		#set vals 1 and 1 into reg 16,17
+	add $16, $0, 4
+	add $17, $0, 4
+	
+B1:
+	beq $16, $17, L1
+	j END
+	
+L1:
+	add $17, $0, 1
+	j B1
+	
+END:
+	
