@@ -1,5 +1,5 @@
 # CIS 451 Project 2 - MIPS CPU
-A MIPS CPU created in JLS. This CPU supports 26 different instructions; each instruction is listed in the CPU Instructions Excel sheet, along with their op and func codes. The entire CPU is in PHSingleCycleCPU.jls, which is made up of various subcircuits connected together. Those subcircuits are also included in this project.
+A MIPS CPU created in JLS. This CPU supports 26 different instructions; each instruction is listed in the CPU Instructions Excel sheet along with their op and func codes. The entire CPU is in PHSingleCycleCPU.jls, which is made up of various subcircuits connected together. Those subcircuits are also included in this project.
 
 The truth table for the entire control unit is included, along with all the Karnaugh maps used to simplify the resulting circuits. Some test MIPS code is included in the 'tests' directory.
 
